@@ -7,8 +7,10 @@ function saveInput(){
     
 
     return(
+        <>
         <input type="text" />
         <p>listan:{textArray}</p>
+        </>
     )
 }
 
