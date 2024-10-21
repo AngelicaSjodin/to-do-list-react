@@ -5,7 +5,7 @@ export type TodoItem={
 
 export type Prop = {
     todo: TodoItem;
-    remove: (id:number)=>void;
+    remove: (id:number)=>void; //kom ihåg void betyder no return value
 };
 
 

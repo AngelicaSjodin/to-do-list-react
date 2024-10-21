@@ -10,7 +10,7 @@ const Header = () => {
 }
 
 export default Header
-//bwelow toogle function
+//nedanför är toogle function
 //todo
 //export const TodoOLDVERSION:React.FC<Prop>=(props) => {
 //return <li
