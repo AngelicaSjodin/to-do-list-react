@@ -21,15 +21,16 @@ function App() {
     setList([...list,newTodo]);
   }
 
-  const toggleTodo=(id:number)=>{
-    const newTodos=list.map(todo=>{
-      if(todo.id === id){
-        return{...todo,isCompleted: !todo.isCompleted};
-      }
-      return todo;
-    });
-    setList(newTodos);
-  }
+//const toggleTodo=(id:number)=>{
+//  const newTodos=list.map(todo=>{
+//    if(todo.id === id){
+//    return{...todo,isCompleted: !todo.isCompleted};
+//  }
+//  return todo;
+//   });
+//setList(newTodos);
+//  }
+
   return (
     <main>
       
@@ -40,7 +41,8 @@ function App() {
       </div>
       <ul>
         {list.map(todo=>(
-          <Todo key={todo.id} todo={todo} toggleTodo={toggleTodo}/>
+          <Todo key={todo.id} todo={todo} //toggleTodo={toggleTodo}
+          />
         ))}
       </ul>
       
