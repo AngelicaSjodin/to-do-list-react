@@ -5,6 +5,7 @@ import List from "./components/List.tsx";
 import { Todo } from "./components/todo.tsx";
 import { TodoItem } from "./components/props.tsx";
 import {useState} from 'react';
+import { remove } from "./components/remove.tsx";
 import './App.css';
 
 
@@ -20,6 +21,10 @@ function App() {
     setList([...list,newTodo]);
   }
 
+  const remove=(id:number)=>{
+    
+  }
+
   return (
     <main>
       
@@ -30,7 +35,7 @@ function App() {
       </div>
       <ul>
         {list.map(todo=>(
-          <Todo key={todo.id} todo={todo} //toggleTodo={toggleTodo}
+          <Todo key={todo.id} todo={todo} remove={remove}//toggleTodo={toggleTodo} 
           />
         ))}
       </ul>
