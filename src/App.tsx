@@ -38,7 +38,7 @@ function App() {
       </div>
       <ul>
         {list.map(todo=>(
-          <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo} 
+          <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fix efter save function 
           />
         ))}
       </ul>
