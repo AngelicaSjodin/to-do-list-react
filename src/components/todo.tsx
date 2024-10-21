@@ -1,11 +1,8 @@
-import { TodoItem as TodoItemType } from "./types";
+import { Prop } from "./props.tsx";
 
-type Props = {
-    todo: TodoItemType;
-    toggleTodo: (id:number) => void;
-};
 
-export const Todo:React.FC<Props>=(props) => {
+export const Todo:React.FC<Prop>=(props) => {
+    
     return <li
     onClick={()=>props.toggleTodo(props.todo.id)}
     style={{textDecoration:props.todo.isCompleted?"line-through":"none"}}

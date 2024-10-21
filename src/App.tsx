@@ -3,8 +3,7 @@ import Header from "./components/Header.tsx";
 import Text from "./components/Text.tsx";
 import List from "./components/List.tsx";
 import { Todo } from "./components/todo.tsx";
-import { TodoItem } from "./components/types.ts";
-
+import { TodoItem } from "./components/props.tsx";
 import {useState} from 'react';
 import './App.css';
 

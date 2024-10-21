@@ -4,3 +4,7 @@ export type TodoItem={
     isCompleted:boolean;
 };
 
+export type Prop = {
+    todo: TodoItem;
+    toggleTodo: (id:number) => void;
+};
