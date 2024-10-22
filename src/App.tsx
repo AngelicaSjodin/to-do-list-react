@@ -15,17 +15,17 @@ function App() {
   const[list,setList]=useState<TodoItem[]>([]);
   
   const addToList=(text:string)=>{
-    if (text.trim() === '') return; //trim tar bort spaces hihi
+    if (text.trim() === '') return; 
     const newTodo: TodoItem={
       id: Date.now(),
       text,
     };
-    setList([...list,newTodo]); //updatera med ny todo
+    setList([...list,newTodo]); 
     setInput('');
   }
 
   const removeTodo=(id:number)=>{
-    setList(list.filter(todo =>todo.id !== id)); // man ska behålla
+    setList(list.filter(todo =>todo.id !== id)); 
   }
 
   return (
@@ -38,7 +38,7 @@ function App() {
       </div>
       <ul>
         {list.map(todo=>(
-          <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fix efter save function 
+          <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fixar efter save function 
           />
         ))}
       </ul>
