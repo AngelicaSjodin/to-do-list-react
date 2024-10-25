@@ -1,23 +1,20 @@
 import './App.css';
 import {useState} from 'react';
-import { TodoItem } from "./components/props.tsx";
+import { TodoItem } from "./components/todoitem.tsx";
 import { Remove } from "./components/remove.tsx";
-import { addButton } from "./components/addButton.tsx";
+import { InputAndButton } from './components/addButton.tsx';
 
 
 
 function App() {
-  const [input,setInput]=useState('');
   const[list,setList]=useState<TodoItem[]>([]);
   
-  const addToList=(text:string)=>{
-    if (text.trim() === '') return; 
+  const addToList=(text:string)=>{ 
     const newTodo: TodoItem={
       id: Date.now(),
       text,
     };
     setList([...list,newTodo]); 
-    setInput('');
   }
 
   const removeTodo=(id:number)=>{
@@ -29,8 +26,7 @@ function App() {
       
       <div>
         <p>min lista</p>
-        <input type="text" value={input} onChange={e=> setInput(e.target.value)} />
-        <button onClick={()=> addToList(input)}>lägg till</button>
+        <InputAndButton addToList={addToList} />
       </div>
       <ul>
         {list.map(todo=>(
