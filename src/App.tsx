@@ -1,13 +1,9 @@
-
-import Header from "./components/oldCode.tsx";
-import Text from "./components/Text.tsx";
-import List from "./components/List.tsx";
-import { oldtodo } from "./components/todo.tsx";
-
 import './App.css';
 import {useState} from 'react';
 import { TodoItem } from "./components/props.tsx";
 import { Remove } from "./components/remove.tsx";
+import { addButton } from "./components/addButton.tsx";
+
 
 
 function App() {
