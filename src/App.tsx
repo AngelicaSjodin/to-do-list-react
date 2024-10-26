@@ -8,7 +8,10 @@ import { InputAndButton } from './components/addButton.tsx';
 
 function App() {
   const[list,setList]=useState<TodoItem[]>([]);
-  
+    const storage= localStorage.getItem('todos');
+
+
+
   const addToList=(text:string)=>{ 
     const newTodo: TodoItem={
       id: Date.now(),
@@ -24,16 +27,17 @@ function App() {
   return (
     <main>
       
-      <div>
-        <p>min lista</p>
+      <div className='content'>
+        <p>min lista i typescript :D</p>
         <InputAndButton addToList={addToList} />
+      
+        <ul>
+          {list.map(todo=>(
+            <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fixar efter save function 
+            />
+          ))}
+        </ul>
       </div>
-      <ul>
-        {list.map(todo=>(
-          <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fixar efter save function 
-          />
-        ))}
-      </ul>
       
     </main>
   )

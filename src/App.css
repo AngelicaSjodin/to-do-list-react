@@ -1,0 +1,8 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    padding-top: 6em;
+}
