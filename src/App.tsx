@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { TodoItem } from "./components/todoitem.tsx";
 import { Remove } from "./components/remove.tsx";
 import { InputAndButton } from './components/addButton.tsx';
@@ -7,22 +7,32 @@ import { InputAndButton } from './components/addButton.tsx';
 
 
 function App() {
-  const[list,setList]=useState<TodoItem[]>([]);
-    const storage= localStorage.getItem('todos');
-
-
+  const[list,setList]=useState<TodoItem[]>(()=> {
+    const storage= localStorage.getItem('todos'); //laddar in från storage
+    return storage ? JSON.parse(storage):[];
+  });
 
   const addToList=(text:string)=>{ 
     const newTodo: TodoItem={
       id: Date.now(),
       text,
     };
-    setList([...list,newTodo]); 
-  }
+    const update= [...list,newTodo];
+    setList(update);
+    localStorage.setItem('todos',JSON.stringify(update)); //sparar storage
+  };
+
+  
 
   const removeTodo=(id:number)=>{
-    setList(list.filter(todo =>todo.id !== id)); 
-  }
+    const updateRemove= list.filter(todo=> todo.id !== id);
+    setList(updateRemove);
+    localStorage.setItem('todos',JSON.stringify(updateRemove));
+  };
+
+  useEffect(()=>{//startar när det ändras
+    localStorage.setItem('todos',JSON.stringify(list));
+  },[list]);
 
   return (
     <main>
