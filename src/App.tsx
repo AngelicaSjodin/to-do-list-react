@@ -1,6 +1,6 @@
 import './App.css';
 import {useEffect, useState} from 'react';
-import { TodoItem } from "./components/todoitem.tsx";
+import { TodoItem } from "./components/TodoItem.tsx";
 import { Remove } from "./components/remove.tsx";
 import { InputAndButton } from './components/addButton.tsx';
 
@@ -8,7 +8,7 @@ import { InputAndButton } from './components/addButton.tsx';
 
 function App() {
   const[list,setList]=useState<TodoItem[]>(()=> {
-    const storage= localStorage.getItem('todos'); //laddar in från storage
+    const storage= localStorage.getItem('todos'); 
     return storage ? JSON.parse(storage):[];
   });
 
@@ -19,7 +19,7 @@ function App() {
     };
     const update= [...list,newTodo];
     setList(update);
-    localStorage.setItem('todos',JSON.stringify(update)); //sparar storage
+    localStorage.setItem('todos',JSON.stringify(update)); 
   };
 
   
@@ -43,7 +43,7 @@ function App() {
       
         <ul>
           {list.map(todo=>(
-            <Remove key={todo.id} todo={todo} remove={removeTodo}//toggleTodo={toggleTodo}? fixar efter save function 
+            <Remove key={todo.id} todo={todo} remove={removeTodo}
             />
           ))}
         </ul>
